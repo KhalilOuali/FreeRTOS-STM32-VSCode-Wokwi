@@ -3,6 +3,13 @@ name: Build and test
 on:
     workflow_dispatch:
     push:
+        paths:
+            - '**.c'
+            - '**.h'
+            - '**.s'
+            - '**.ld'
+            - 'Makefile'
+            - 'Wokwi/**'
 
 jobs:
     build-and-test:
