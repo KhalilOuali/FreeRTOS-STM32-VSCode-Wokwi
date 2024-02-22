@@ -18,6 +18,8 @@
 - Simulation: `Wokwi`
 - CI/CD: `GitHub Actions` + `Wokwi CI`
 
+![Screenshot during debugging](Screenshot.png)
+
 ## Prerequisites
 
 - [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) for compilation
