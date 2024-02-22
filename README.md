@@ -2,6 +2,8 @@
 
 [![Build and test](https://github.com/KhalilOuali/FreeRTOS-STM32-VSCode-Wokwi/actions/workflows/ci.yml/badge.svg)](https://github.com/KhalilOuali/FreeRTOS-STM32-VSCode-Wokwi/actions/workflows/ci.yml)
 
+![Screenshot during debugging](Screenshot.png)
+
 ## Description
 
 - Framework: `FreeRTOS / HAL`
@@ -18,8 +20,6 @@
 - Simulation: `Wokwi`
 - CI/CD: `GitHub Actions` + `Wokwi CI`
 
-![Screenshot during debugging](Screenshot.png)
-
 ## Prerequisites
 
 - [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) for compilation
@@ -30,7 +30,7 @@
 
 1. Clone this repo
 2. Open in [VSCode](https://code.visualstudio.com/)
-3. Install the `[recommended extensions](.vscode/extensions.json)
+3. Install the [recommended extensions](.vscode/extensions.json)
 4. Run VSCode debugger on `Build & Debug` task
 
 VSCode will automatically build the project, start the Wokwi simulator and attach the debugger.
@@ -103,7 +103,7 @@ See [Wokwi CI](https://docs.wokwi.com/wokwi-ci/getting-started) for more details
 ### STM32CubeMX
 
 This project was initially generated using STM32CubeMX.
-You can open [`Nucleo-C031C6-FreeRTOS.ioc`](Nucleo-C031C6-FreeRTOS.ioc) in STM32CubeMX to reconfigure the project.and regenerate the code.
+You can open [`Nucleo-C031C6-FreeRTOS.ioc`](Nucleo-C031C6-FreeRTOS.ioc) in STM32CubeMX to reconfigure the project and regenerate the code.
 The generated code has some issues. Check or run [`fix_MX_codegen.py`](fix_MX_codegen.py) for the fixes.
 
 ## Development
@@ -111,6 +111,11 @@ The generated code has some issues. Check or run [`fix_MX_codegen.py`](fix_MX_co
 The main user code is in [`Core/Src/main.c`](Core/Src/main.c) and [`Core/Src/app_freertos.c`](Core/Src/app_freertos.c).
 The FreeRTOS configuration is in [`Core/Inc/FreeRTOSConfig.h`](Core/Inc/FreeRTOSConfig.h).
 It is recommended that you write your code within the `USER CODE` sections, as STM32CubeMX will overwrite the rest of the files if you use it to reconfigure the project and regenerate the code. (Hence the need for the [`fix_MX_codegen.py`](fix_MX_codegen.py) script.)
+
+Relevant documentation:
+
+- [NUCLEO-C031C6 Board User Manual](https://www.st.com/resource/en/user_manual/um2953-stm32-nucleo64-board-mb1717-stmicroelectronics.pdf)
+- [STM32C031C6 MCU Datasheet](https://www.st.com/resource/en/datasheet/stm32c031c6.pdf)
 
 ## Acknowledgements
 
