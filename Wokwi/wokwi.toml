@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+elf = "../build/Nucleo-C031C6-FreeRTOS.elf"
+firmware = "../build/Nucleo-C031C6-FreeRTOS.hex"
+bin = "../build/Nucleo-C031C6-FreeRTOS.bin"
+rfc2217ServerPort = 4000
+gdbServerPort = 3333

@@ -1,0 +1,27 @@
+name: Build and test
+
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Install ARM GCC toolchain
+              uses: carlosperate/arm-none-eabi-gcc-action@v1
+              with:
+                  release: "12.2.Rel1"
+
+            - name: Build project
+              run: make
+
+            - name: Simulate and test with Wokwi
+              uses: wokwi/wokwi-ci-action@v1
+              with:
+                  token: ${{ secrets.WOKWI_CLI_TOKEN }}
+                  path: /Wokwi
+                  timeout: 5000
+                  expect_text: "Hello FreeRTOS!"

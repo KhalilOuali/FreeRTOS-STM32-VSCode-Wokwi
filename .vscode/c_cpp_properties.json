@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "intelliSenseMode": "linux-gcc-arm",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "Core/Inc",
+                "Drivers/STM32C0xx_HAL_Driver/Inc",
+                "Drivers/STM32C0xx_HAL_Driver/Inc/Legacy",
+                "Drivers/BSP/STM32C0xx_Nucleo",
+                "Drivers/CMSIS/Device/ST/STM32C0xx/Include",
+                "Drivers/CMSIS/Include",
+                "Middlewares/Third_Party/FreeRTOS/Source/include/",
+                "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/",
+                "Middlewares/Third_Party/CMSIS/RTOS2/Include/",
+                "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0/"
+            ],
+            "compilerArgs": [
+                "-mcpu=cortex-m0",
+                "-mthumb",
+                "-Og",
+                "-Wall",
+                "-fdata-sections",
+                "-ffunction-sections",
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_NUCLEO_64",
+                "USE_HAL_DRIVER",
+                "STM32C031xx"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "compilerPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\13.2 Rel1\\bin\\arm-none-eabi-gcc.exe"
+        }
+    ],
+    "version": 4
+}
