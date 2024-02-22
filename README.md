@@ -1,5 +1,7 @@
 # FreeRTOS / HAL on STM32 Nucleo64 C031C6 with Wokwi Simulation
 
+[![Build and test](https://github.com/KhalilOuali/FreeRTOS-STM32-VSCode-Wokwi/actions/workflows/ci.yml/badge.svg)](https://github.com/KhalilOuali/FreeRTOS-STM32-VSCode-Wokwi/actions/workflows/ci.yml)
+
 ## Description
 
 - Framework: `FreeRTOS / HAL`
