@@ -4,6 +4,22 @@
 
 ![Screenshot during debugging](Screenshot.png)
 
+- [FreeRTOS / HAL on STM32 Nucleo64 C031C6 with Wokwi Simulation](#freertos--hal-on-stm32-nucleo64-c031c6-with-wokwi-simulation)
+  - [Description](#description)
+  - [Prerequisites](#prerequisites)
+  - [Recommended usage](#recommended-usage)
+  - [Alternate usage](#alternate-usage)
+    - [Build](#build)
+    - [Simulate](#simulate)
+    - [Debug](#debug)
+  - [Further usage](#further-usage)
+    - [Serial communication](#serial-communication)
+    - [FreeRTOS inspection](#freertos-inspection)
+    - [CI](#ci)
+    - [STM32CubeMX](#stm32cubemx)
+  - [Development](#development)
+  - [Acknowledgements](#acknowledgements)
+
 ## Description
 
 - Framework: `FreeRTOS / HAL`
@@ -23,6 +39,9 @@
 ## Prerequisites
 
 - [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) for compilation
+  - If you have [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) or [STM32CubeCLT](https://www.st.com/en/development-tools/stm32cubeclt.html) installed, you may be able to use the toolchain that comes with them.
+  - Make sure the `arm-none-eabi` executables are in your `PATH`.
+  - Make sure to update the [C/C++ extension configuration](.vscode/c_cpp_properties.json).
 - [GNU Make](https://www.gnu.org/software/make/) ([Make for Windows](https://gnuwin32.sourceforge.net/packages/make.htm)) for building
 - [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) for configuration / code generation
 
@@ -68,6 +87,11 @@ Notes:
 1. Install [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for VSCode
 2. Start simulation
 3. Run VSCode debugger on `Debug` task
+
+Notes:
+
+- `gdbServerPort = <port>` in [`Wokwi/wokwi.toml`](Wokwi/wokwi.toml) is used to forward the GDB server to a local TCP port.
+- Make sure to update the [launch configuration](.vscode/launch.json) if you make changes.
 
 ## Further usage
 
