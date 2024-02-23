@@ -37,6 +37,7 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "compilerPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\13.2 Rel1\\bin\\arm-none-eabi-gcc.exe"
+            // "compilerPath": "C:\\ST\\STM32CubeCLT\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe"
         }
     ],
     "version": 4

@@ -3,7 +3,7 @@
 
 def fix_source():
     """
-    STM32CubeMX adds `../` at the beginning of the path to `stm32c0xx_nucleo.c` file in Makefile.
+    STM32CubeMX adds `../` at the beginning `stm32c0xx_nucleo.c` path in the `C_SOURCES` variable in the `Makefile`.
     This function removes that.
     """
     with open("Makefile", "r") as file:
@@ -19,28 +19,28 @@ def fix_source():
         source_lines[-1] = source_lines[-1].strip() + " \\\n"
 
     with open("Makefile", "w") as file:
-        file.writelines(lines[:start_line] + source_lines + ["Drivers/BSP/STM32C0xx_Nucleo/stm32c0xx_nucleo.c \t# fix_MX_codegen.py\n"] + lines[end_line+1:])
+        file.writelines(lines[:start_line] + source_lines + ["Drivers/BSP/STM32C0xx_Nucleo/stm32c0xx_nucleo.c  # fix_MX_codegen.py\n"] + lines[end_line+1:])
 
 def add_write_override():
     """
-    It's possible to redirect printf output to COM port by overriding std functions.
+    It's possible to redirect printf output to the VCOM by overriding std functions.
     STM32CubeMX only overrides `__io_putchar` for `__GNUC__`, which is not enough on some systems.
-    This function adds a `_write` override to `Drivers/BSP/STM32C0xx_Nucleo/stm32c0xx_nucleo.c` file.
+    This function adds a `_write` override to `stm32c0xx_nucleo.c` file.
     """
     addition = """
-    // fix_MX_codegen.py
+// fix_MX_codegen.py
 
-    #ifdef __GNUC__
-    /**
-    * @brief  Redirect printf output to COM
-    */
-    int _write(int file, char *ptr, int len)
-    {
-        HAL_UART_Transmit(&hcom_uart, (uint8_t *) ptr, len, HAL_MAX_DELAY);
-        return len;
-    }
-    #endif /* __GNUC__ */
-    """
+#ifdef __GNUC__
+/**
+* @brief  Redirect printf output to COM
+*/
+int _write(int file, char *ptr, int len)
+{
+  HAL_UART_Transmit(&hcom_uart [COM_ActiveLogPort], (uint8_t *) ptr, len, HAL_MAX_DELAY);
+  return len;
+}
+#endif /* __GNUC__ */
+"""
 
     add = True
 
@@ -73,7 +73,7 @@ def fix_usart2():
                 if content in line:
                     line = line.replace(old, new)
                     if "fix_MX_codegen.py" not in line:
-                        line = line.strip() + "\t// fix_MX_codegen.py\n"
+                        line = line.strip() + "  // fix_MX_codegen.py\n"
             file.write(line)
 
     with open('Drivers/BSP/STM32C0xx_Nucleo/stm32c0xx_nucleo.c', 'r') as file:
@@ -82,7 +82,7 @@ def fix_usart2():
     with open('Drivers/BSP/STM32C0xx_Nucleo/stm32c0xx_nucleo.c', 'w') as file:
         for line in lines:
             if "USART1" in line:
-                file.write(line.replace('USART1', 'USART2').strip() + "\t// fix_MX_codegen.py\n")
+                file.write(line.replace('USART1', 'USART2').strip() + "  // fix_MX_codegen.py\n")
             else:
                 file.write(line)
 

@@ -6,5 +6,6 @@
     "ms-vscode.vscode-serial-monitor",
     "ms-vscode.vscode-embedded-tools",
     "github.vscode-github-actions",
+    "mcu-debug.rtos-views",
   ]
 }

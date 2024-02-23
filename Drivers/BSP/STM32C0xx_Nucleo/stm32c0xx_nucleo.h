@@ -201,22 +201,22 @@ typedef struct
   * @brief Definition for COM port1, connected to UART1
   */
 #if (USE_BSP_COM_FEATURE > 0)
-#define COM1_UART                     USART2	// fix_MX_codegen.py
-#define COM1_CLK_ENABLE()             __HAL_RCC_USART2_CLK_ENABLE()	// fix_MX_codegen.py
-#define COM1_CLK_DISABLE()            __HAL_RCC_USART2_CLK_DISABLE()	// fix_MX_codegen.py
+#define COM1_UART                     USART2  // fix_MX_codegen.py
+#define COM1_CLK_ENABLE()             __HAL_RCC_USART2_CLK_ENABLE()  // fix_MX_codegen.py
+#define COM1_CLK_DISABLE()            __HAL_RCC_USART2_CLK_DISABLE()  // fix_MX_codegen.py
 
-#define COM1_TX_PIN                   GPIO_PIN_2	// fix_MX_codegen.py
-#define COM1_TX_GPIO_PORT             GPIOA	// fix_MX_codegen.py
-#define COM1_TX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()	// fix_MX_codegen.py
-#define COM1_TX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()	// fix_MX_codegen.py
-#define COM1_TX_AF                    GPIO_AF1_USART2	// fix_MX_codegen.py
+#define COM1_TX_PIN                   GPIO_PIN_2  // fix_MX_codegen.py
+#define COM1_TX_GPIO_PORT             GPIOA  // fix_MX_codegen.py
+#define COM1_TX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()  // fix_MX_codegen.py
+#define COM1_TX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()  // fix_MX_codegen.py
+#define COM1_TX_AF                    GPIO_AF1_USART2  // fix_MX_codegen.py
 
-#define COM1_RX_PIN                   GPIO_PIN_3	// fix_MX_codegen.py
-#define COM1_RX_GPIO_PORT             GPIOA	// fix_MX_codegen.py
-#define COM1_RX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()	// fix_MX_codegen.py
-#define COM1_RX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()	// fix_MX_codegen.py
-#define COM1_RX_AF                    GPIO_AF1_USART2	// fix_MX_codegen.py
-#define COM_POLL_TIMEOUT             HAL_MAX_DELAY	// fix_MX_codegen.py
+#define COM1_RX_PIN                   GPIO_PIN_3  // fix_MX_codegen.py
+#define COM1_RX_GPIO_PORT             GPIOA  // fix_MX_codegen.py
+#define COM1_RX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()  // fix_MX_codegen.py
+#define COM1_RX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()  // fix_MX_codegen.py
+#define COM1_RX_AF                    GPIO_AF1_USART2  // fix_MX_codegen.py
+#define COM_POLL_TIMEOUT             HAL_MAX_DELAY  // fix_MX_codegen.py
 #endif /* USE_BSP_COM_FEATURE */
 
 /**
@@ -269,7 +269,7 @@ int32_t  BSP_COM_SelectLogPort(COM_TypeDef COM);
 int32_t BSP_COM_RegisterDefaultMspCallbacks(COM_TypeDef COM);
 int32_t BSP_COM_RegisterMspCallbacks(COM_TypeDef COM, BSP_COM_Cb_t *Callback);
 #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
-HAL_StatusTypeDef MX_USART2_Init(UART_HandleTypeDef *huart, MX_UART_InitTypeDef *COM_Init);	// fix_MX_codegen.py
+HAL_StatusTypeDef MX_USART2_Init(UART_HandleTypeDef *huart, MX_UART_InitTypeDef *COM_Init);  // fix_MX_codegen.py
 #endif /* USE_BSP_COM_FEATURE */
 
 /**

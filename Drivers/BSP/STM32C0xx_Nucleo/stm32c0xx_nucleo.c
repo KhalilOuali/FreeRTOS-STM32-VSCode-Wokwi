@@ -414,7 +414,7 @@ int32_t BSP_COM_Init(COM_TypeDef COM, COM_InitTypeDef *COM_Init)
     }
 #endif /* (USE_HAL_UART_REGISTER_CALLBACKS == 0) */
 
-if (MX_USART2_Init(&hcom_uart[COM], COM_Init) != HAL_OK)	// fix_MX_codegen.py
+if (MX_USART2_Init(&hcom_uart[COM], COM_Init) != HAL_OK)  // fix_MX_codegen.py
     {
       ret = BSP_ERROR_PERIPH_FAILURE;
     }
@@ -462,7 +462,7 @@ int32_t BSP_COM_DeInit(COM_TypeDef COM)
   *                  configuration information for the specified USART peripheral.
   * @retval HAL error code
   */
-__weak HAL_StatusTypeDef MX_USART2_Init(UART_HandleTypeDef *huart, MX_UART_InitTypeDef *COM_Init)	// fix_MX_codegen.py
+__weak HAL_StatusTypeDef MX_USART2_Init(UART_HandleTypeDef *huart, MX_UART_InitTypeDef *COM_Init)  // fix_MX_codegen.py
 {
   /* USART configuration */
   huart->Instance                = COM_USART[COM1];
@@ -674,16 +674,15 @@ static void COM1_MspDeInit(UART_HandleTypeDef *huart)
   * @}
   */
 
-
 // fix_MX_codegen.py
 
 #ifdef __GNUC__
 /**
-  * @brief  Redirect printf output to COM
-  */
+* @brief  Redirect printf output to COM
+*/
 int _write(int file, char *ptr, int len)
 {
-	HAL_UART_Transmit(&hcom_uart, (uint8_t *) ptr, len, HAL_MAX_DELAY);
-	return len;
+  HAL_UART_Transmit(&hcom_uart [COM_ActiveLogPort], (uint8_t *) ptr, len, HAL_MAX_DELAY);
+  return len;
 }
 #endif /* __GNUC__ */
